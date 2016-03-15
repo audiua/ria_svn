@@ -5,10 +5,10 @@ let http = require("http"),
     Counter = require('./node_modules/counter');
 
 let server = http.createServer(function handler(req, res, next){
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
 
     let path = url.parse(req.url).pathname,
-        res_text = '',
-        res_code = 200;
+        res_text = '';
 
     if(path == '/index.html'){
         res_text = 'Привет Мир <br><br><a href="/count.html">count.html</a>';
@@ -16,15 +16,11 @@ let server = http.createServer(function handler(req, res, next){
     } else if(path == '/count.html') {
         res_text = 'Количество просмотров = '+Counter.getCount()+'<br><br><a href="/index.html">index.html</a>';
     } else {
-        res_code = 404;
+        res.statusCode = 404;
         res_text = 'Page not found!<br><br><a href="/index.html">index.html</a>';
     }
 
-    res.writeHead(res_code, {
-        "Content-Type": "text/html; charset=utf-8"
-    });
     res.end(res_text);
-
 });
 
 server.listen(3000);
