@@ -9,8 +9,7 @@ let server = http.createServer(function handler(req, res, next){
     let path = url.parse(req.url).pathname,
         res_text = '',
         res_code = 200;
-
-
+    
     if(path == '/index.html'){
         res_text = 'Привет Мир <br><br><a href="/count.html">count.html</a>';
         Counter.setCount();
