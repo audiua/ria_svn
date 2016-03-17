@@ -1,0 +1,15 @@
+{
+  "name": "lesson3",
+  "version": "1.0.0",
+  "description": "Homework - Lesson 3",
+  "main": "index.js",
+  "dependencies": {
+    "users": "./lib/users",
+    "validator": "./lib/validator"
+  },
+  "repository": {
+    "type": "svn",
+    "url": "https://github.com/audiua/ria_svn.git"
+  },
+  "license": "ISC"
+}
