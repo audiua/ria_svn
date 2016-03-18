@@ -75,7 +75,7 @@ function Users(){
      * @param data
      */
     let getUserFields = function(data){
-  
+
         let fields = {};
         for(let field in rules){
             if(allUsers[field]){
