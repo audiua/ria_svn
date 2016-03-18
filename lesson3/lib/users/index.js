@@ -1,6 +1,6 @@
 "use strict";
 
-let Validator = require("validator");
+let Validator = require("../validator");
 
 /**
  * @constructor
@@ -26,13 +26,9 @@ function Users(){
      */
     this.validate = function(postData){
 
-        let valid = Validator;
-        valid.setRules(rules);
-        valid.setData(postData);
-        valid = Validator.run();
-
+        let valid = Validator(rules,postData).run();
         if(!valid.success){
-            throw valid.error
+            throw valid.error;
         }
 
         return true;
@@ -58,9 +54,7 @@ function Users(){
      * @param postData
      */
     this.add = function add(postData){
-
         if(this.validate(postData)){
-
             if(allUsers.length > 0){
                 for(let user in allUsers){
 
@@ -81,12 +75,11 @@ function Users(){
      * @param data
      */
     let getUserFields = function(data){
-        console.log(data);
+  
         let fields = {};
         for(let field in rules){
             if(allUsers[field]){
                 updateUser(allUsers[field], data);
-                retu
             }
         }
 

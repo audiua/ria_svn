@@ -1,8 +1,8 @@
 module.exports = {
   "get": {
-    "/api/users": require("./controllers/usersController").getAll
+    "/users": require("./controllers/usersController").getAll
   },
   "post": {
-    "/api/add": require("./controllers/usersController").postAdd
+    "/users": require("./controllers/usersController").postAdd
   }
 };
