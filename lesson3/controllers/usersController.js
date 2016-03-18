@@ -17,9 +17,9 @@ module.exports = {
         });
 
         request.on('end', function () {
-            postData = JSON.parse(postData);
 
             try{
+                postData = JSON.parse(postData);
                 Users.add(postData);
                 response.statusCode = 201;
                 response.end();
